@@ -1,0 +1,8 @@
+#card {
+    flex-direction: row;
+    margin: auto;
+    background-color: rgb(217, 252, 240);
+    font-size: medium;
+    border: solid;
+    border-radius: 5px;
+}

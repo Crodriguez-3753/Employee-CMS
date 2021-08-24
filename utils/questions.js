@@ -14,6 +14,25 @@ module.exports = {
         },
     ],
 
+    engineerQuestions: [
+        {
+          message: "What is your name?",
+          name: "name"
+        },
+        {
+          message: "What is your id?",
+          name: "id"
+        },
+        {
+          message: "What is your email?",
+          name: "email",
+        },
+        {
+          message: "What is your Github username?",
+          name: "github",
+        }
+      ],
+    
     internQuestions: [
         {
             message: "what is your name",
@@ -29,4 +48,17 @@ module.exports = {
         },
     ],
     
+    mainMenuQuestions: [
+        {
+          message: "What would you like to do next?",
+          name: "mainMenu", 
+          type: "list", 
+          choices: [
+            "Add another Engineer", 
+            "Add an Intern", 
+            "Bye"
+         ]
+        },
+    ]
 }
+
