@@ -1,0 +1,22 @@
+{
+  "name": "employee-cms",
+  "version": "1.0.0",
+  "description": "This is a command-line application that takes in information about employees on a software team, in which generates a HTML webpage with a brief summary for each person.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crodriguez-3753/Employee-CMS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Crodriguez-3753/Employee-CMS/issues"
+  },
+  "homepage": "https://github.com/Crodriguez-3753/Employee-CMS#readme"
+}
