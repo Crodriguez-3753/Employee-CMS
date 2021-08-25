@@ -1,17 +1,21 @@
 module.exports = {
     managerQuestions: [
         {
-            message: "what is your name",
+            message: "what is your name?",
             name: "name",
         },
         {
-            message: "what is your id",
+            message: "what is your id?",
             name: "id",
         },
         {
-            message: "what is your email",
+            message: "what is your email?",
             name: "email",
         },
+        {
+          message: "what is your office number?",
+          name: "office",
+      },
     ],
 
     engineerQuestions: [
@@ -39,12 +43,16 @@ module.exports = {
             name: "name",
         },
         {
-            message: "what is your id",
+            message: "what is your id?",
             name: "id",
         },
         {
-            message: "what is your email",
-            name: "email",
+          message: "what is email?",
+          name: "email",
+      },
+        {
+            message: "what is the name of your school",
+            name: "school",
         },
     ],
     

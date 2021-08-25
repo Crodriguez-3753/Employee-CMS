@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Crodriguez-3753/Employee-CMS#readme",
   "dependencies": {
-    "inquirer": "^8.1.2"
+    "inquirer": "^8.1.2",
+    "open": "^8.2.1"
   }
 }
