@@ -87,8 +87,8 @@ function saveTeam() {
 };
 
 function saveFile(htmlStr) {
-    writeFileSync(path.joint(__dirname, "dist/index.html"), htmlStr)
-    open(path.joint(dirname, "dist/index.html"))
+    writeFileSync(path.join(__dirname, "dist/index.html"), htmlStr)
+    open(path.join(_dirname, "dist/index.html"))
 }
 
 //build htmlString
