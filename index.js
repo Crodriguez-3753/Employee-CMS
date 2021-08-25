@@ -8,8 +8,6 @@ const {writeFileSync} = require('fs')
 const { async } = require("rxjs")
 const path = require('path');
 const open = require('open');
-const { managerQuestions } = require("./utils/questions.js");
-const { dirname } = require("path");
 
 
 const htmlTeamArray = []
@@ -18,12 +16,12 @@ async function main () {
     
     // generate manager
         // ask questions 
-        const manageAnswers = await inquirer.prompt(questions.managerQuestions)
+        const managerAnswers = await inquirer.prompt(questions.managerQuestions)
         // get only answers value
-        const manageParameters = Object.values(managerQuestions)
+        const managerParameters = Object.values(managerAnswers)
 
         // create a new manager based on object propeties
-        const manager = new Manager(...manageParameters)
+        const manager = new Manager(...managerParameters)
 
         // create employee html string
         const employeeCard = generateEmployeeHtml(manager)
@@ -53,7 +51,7 @@ async function promptEngineer() {
     const engineerParameters = Object.values(engineerAnswers);
 
     // create new engineer based on Object properties
-    const engineer = new Engineer (engineerAnswers)
+    const engineer = new Engineer (engineerParameters)
 
     //create employee html string
     const employeeCard = generateEmployeeHtml(engineer)
