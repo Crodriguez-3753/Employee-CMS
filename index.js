@@ -130,9 +130,40 @@ function generateEmployeeHtml(intern) {
     `
 }
 
-   
-
-
+//save string to index.html
+function buildHtmlString(htmlTeamArray) {
+    return `
+    <html lang="en" class="h-100">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="dist/style.css" />
+        <title>MY TEAM</title>
+        <style></style>
+    </head>
+    <body class="h-100">
+        <header class="h-25 color-white p-4" style="background:rgba(0, 0, 255, 0.5)">
+         
+        </header>
+        <main class="main h-50 p-5">
+         <div id = card>  ${htmlTeamArray.join("")}</div>
+        </main>
+        <footer class="h-25">
+            <div class="card bg-dark text -white rounded-0 h-100">
+                <div class="card-header"></div>
+                <div class="card-body">
+                    <div>github: <a href=></a></div>
+                    </div>
+            </div>  
+        </footer>
+        // <script src="/assets/scriptA.js"></script>
+        // <script src="/assets/scriptB.js"></script>
+      </body>
+    </html>
+    `
+}
 
 // Start 🚀
 main();
