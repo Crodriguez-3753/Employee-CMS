@@ -31,6 +31,35 @@ async function main () {
         // to mainMeu
         mainMenu()
 }
+
+//main menu funtion
+async function mainMenu(){
+    //get use choice 
+    const {mainMenu} = await inquirer.prompt(questions.mainMenuQuestions)
+
+    //main switch 
+    switch(mainMenu){
+        case "Add another Engineer": return promptEngineer();
+        case "Add an Intern": return promptIntern();
+        case "Bye": return saveTeam();
+    }
+};
+
+async function promptEngineer() {
+    // ask engineer questions
+    const engineerAnswers = await inquirer.prompt(questions.engineerQuestions)
+    // get only answers values
+    const engineerParameters = Object.values(engineerAnswers);
+
+    // create new engineer based on Object properties
+    const engineer = new Engineer (engineerAnswers)
+
+    //create employee html string
+    const employeeCard = generateEmployeeHtml(engineer)
+
+    //push to htmlTeamArray
+    htmlTeamArray.push(employeeCard)
+}
     // generate Engineer
         // ask questions 
         // render new manger based on object props 
