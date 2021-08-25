@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Crodriguez-3753/Employee-CMS/issues"
   },
-  "homepage": "https://github.com/Crodriguez-3753/Employee-CMS#readme"
+  "homepage": "https://github.com/Crodriguez-3753/Employee-CMS#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  }
 }

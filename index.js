@@ -1,19 +1,28 @@
-const questions = require("./utils/questions");
-const inquirer = require("inquirer");
-const Employee = require("./lib/Employee");
-const 
 
-conat
-async function main(){
+const fs = require('fs');
+const path = require('path');
+const {prompt: promptUser} = require('inquirer');
+const Engineer = require("./lib/Engineer.js");
+const Intern = require("./lib/Intern.js");
+const Manager = require("./lib/Manager.js");
+const questions = require("./utils/questions.js");
+
+const htmlTeamArray = []
+
+async function init () {
     
-    // htmlCardArray = [];
-
     // generate manager
         // ask questions 
+        const managerAnswers = await promptUser(questions.managerQuestions)
+        console.log(managerAnswers);
+        const managerObj = new Manager(...Object.values(managerAnswers))
         // render new manger based on object props 
+        const cardString = renderEmployee(managerObj)
         // push to htmlCardArray
+        htmlTeamArray.push(cardString)
         // to mainMeu
-    
+        mainMenu()
+}
     // generate Engineer
         // ask questions 
         // render new manger based on object props 
@@ -33,35 +42,7 @@ async function main(){
 
     // build htmlString
 
-    function buildHtmlString(htmlCardArray) {
-        `<!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-                integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-                crossorigin="anonymous"
-            />
-        
-            <link rel="stylesheet" href="dist/style.css">
-            <title> Employee CMS</title>
-            <style></style>
-          </head>
-          <body class="h-100">
-            <nav class="h-25 color-white p-4" style="background: rgb (0, 0, 255, 0.5)">
-                <a href="#here"> <div class="btn btn-dark rounded-0">Go here!</div></a>
-            </nav>
-            <main class="container tect-center h-50 p-5">
-        ` + htmlCardArray.join("")
-    }
 
-
-
-
-}
 
 // Start 🚀
 main();
