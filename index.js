@@ -1,16 +1,16 @@
 const questions = require("./utils/questions.js");
 const inquirer = require('inquirer');
-const Employee = ('./lib/Employee');
-const Engineer = require("./lib/Engineer.js");
-const Intern = require("./lib/Intern.js");
-const Manager = require("./lib/Manager.js");
+const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 const {writeFileSync} = require('fs')
 const { async } = require("rxjs")
 const path = require('path');
 const open = require('open');
 
 
-const htmlTeamArray = []
+const htmlTeamArray = [];
 
 async function main () {
     
@@ -51,13 +51,16 @@ async function promptEngineer() {
     const engineerParameters = Object.values(engineerAnswers);
 
     // create new engineer based on Object properties
-    const engineer = new Engineer (engineerParameters)
+    const engineer = new Engineer (...engineerParameters)
 
     //create employee html string
     const employeeCard = generateEmployeeHtml(engineer)
 
     //push to htmlTeamArray
     htmlTeamArray.push(employeeCard)
+    
+    //to mainMenu
+    mainMenu()
 };
 
 async function promptIntern() {
@@ -163,5 +166,5 @@ function buildHtmlString(htmlTeamArray) {
     `
 }
 
-// Start 🚀
-main();
+// Start
+main()

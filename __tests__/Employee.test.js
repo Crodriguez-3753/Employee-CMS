@@ -2,5 +2,5 @@ const Employee = require("../lib/Employee");
 
 test("Can instantiate Employee instance", ()=> {
     const e = new Employee();
-    expect( e instanceof Employee).toBe(true)
+    expect(e instanceof Employee).toBe(true)
 });
