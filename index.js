@@ -30,7 +30,7 @@ async function main () {
         htmlTeamArray.push(employeeCard)
         // to mainMeu
         mainMenu()
-}
+};
 
 //main menu funtion
 async function mainMenu(){
@@ -59,11 +59,27 @@ async function promptEngineer() {
 
     //push to htmlTeamArray
     htmlTeamArray.push(employeeCard)
-}
-    // generate Engineer
-        // ask questions 
-        // render new manger based on object props 
-        // push to htmlCardArray
+};
+
+async function promptIntern() {
+    //ask intern questions
+    const internAnswers = await inquirer.prompt(questions.internQuestions)
+    
+    //get only answers values
+    const internParameters = Object.values(internAnswers)
+    
+    // create new intern based on Object properties
+    const intern = new Intern (...internParameters)
+    
+    // create employee html string
+    const employeeCard = generateEmployeeHtml(intern)
+
+    // push to htmlTeamArray
+    htmlTeamArray.push(employeeCard)
+
+    // to main menu
+    mainMenu()
+};
     
     // generate Intern
         // ask questions 
