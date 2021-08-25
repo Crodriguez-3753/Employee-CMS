@@ -1,25 +1,33 @@
-
-const fs = require('fs');
-const path = require('path');
-const {prompt: promptUser} = require('inquirer');
+const questions = require("./utils/questions.js");
+const inquirer = require('inquirer');
+const Employee = ('./lib/Employee');
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const Manager = require("./lib/Manager.js");
-const questions = require("./utils/questions.js");
+const {writeFileSync} = require('fs')
+const { async } = require("rxjs")
+const path = require('path');
+const open = require('open');
+const { managerQuestions } = require("./utils/questions.js");
+
 
 const htmlTeamArray = []
 
-async function init () {
+async function main () {
     
     // generate manager
         // ask questions 
-        const managerAnswers = await promptUser(questions.managerQuestions)
-        console.log(managerAnswers);
-        const managerObj = new Manager(...Object.values(managerAnswers))
-        // render new manger based on object props 
-        const cardString = renderEmployee(managerObj)
+        const manageAnswers = await inquirer.prompt(questions.managerQuestions)
+        // get only answers value
+        const manageParameters = Object.values(managerQuestions)
+
+        // create a new manager based on object propeties
+        const manager = new Manager(...manageParameters)
+
+        // create employee html string
+        const employeeCard = generateEmployeeHtml(manager)
         // push to htmlCardArray
-        htmlTeamArray.push(cardString)
+        htmlTeamArray.push(employeeCard)
         // to mainMeu
         mainMenu()
 }
