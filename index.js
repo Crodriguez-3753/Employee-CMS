@@ -1,11 +1,11 @@
-const questions = require("./utils/questions.js");
+const questions = require("./utils/questions");
 const inquirer = require('inquirer');
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const {writeFileSync} = require('fs')
-const { async } = require("rxjs")
+const {writeFileSync} = require('fs');
+const { async } = require("rxjs");
 const path = require('path');
 const open = require('open');
 
@@ -37,7 +37,7 @@ async function mainMenu(){
     const {mainMenu} = await inquirer.prompt(questions.mainMenuQuestions)
 
     //main switch 
-    switch(mainMenu){
+    switch (mainMenu) {
         case "Add another Engineer": return promptEngineer();
         case "Add an Intern": return promptIntern();
         case "Bye": return saveTeam();
@@ -91,8 +91,8 @@ function saveTeam() {
 
 function saveFile(htmlStr) {
     writeFileSync(path.join(__dirname, "dist/index.html"), htmlStr)
-    open(path.join(_dirname, "dist/index.html"))
-}
+    open(path.join(__dirname, "dist/index.html"))
+};
 
 //build htmlString
 function generateEmployeeHtml(manager) {
@@ -105,7 +105,7 @@ function generateEmployeeHtml(manager) {
     <div>role:${manager.getRole()}</div>
     </div>
     `
-}
+};
 
 function generateEmployeeHtml(engineer) {
     return `
@@ -117,7 +117,7 @@ function generateEmployeeHtml(engineer) {
     <div>role:${engineer.getRole()}</div>
     </div>
     `
-}
+};
 
 function generateEmployeeHtml(intern) {
     return `
@@ -129,7 +129,7 @@ function generateEmployeeHtml(intern) {
     <div>role:${intern.getRole()}</div>
     </div>
     `
-}
+};
 
 //save string to index.html
 function buildHtmlString(htmlTeamArray) {
@@ -138,18 +138,21 @@ function buildHtmlString(htmlTeamArray) {
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="dist/style.css" />
-        <title>MY TEAM</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="" />
+        <title>Team Profile Generator</title>
         <style></style>
     </head>
     <body class="h-100">
-        <header class="h-25 color-white p-4" style="background:rgba(0, 0, 255, 0.5)">
-         
+        <header class="jumbotron text-center" style="background:rgba(22, 172, 186)">
+         <h1>Team Profile</h1>
         </header>
-        <main class="main h-50 p-5">
-         <div id = card>  ${htmlTeamArray.join("")}</div>
+        <main class="container-fluid">
+            <div class= row justify-content-center">
+            <div id = card>  ${htmlTeamArray.join("")}</div>
         </main>
         <footer class="h-25">
             <div class="card bg-dark text -white rounded-0 h-100">
@@ -159,12 +162,12 @@ function buildHtmlString(htmlTeamArray) {
                     </div>
             </div>  
         </footer>
-        // <script src="/assets/scriptA.js"></script>
-        // <script src="/assets/scriptB.js"></script>
+        <script src="/dist/style.css"></script>
+        <script src="/dist/style.css"></script>
       </body>
     </html>
     `
-}
+};
 
 // Start
 main()
